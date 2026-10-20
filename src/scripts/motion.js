@@ -166,11 +166,16 @@ function init() {
     onEnter: (els) => gsap.to(els, { y: 0, opacity: 1, duration: 0.9, ease: EXPO, stagger: 0.04 }),
   });
 
-  // ---------- Stacked service cards: the one below pushes the previous one back ----------
-  document.querySelectorAll('.services .service').forEach((card, i, all) => {
-    const next = all[i + 1];
-    if (!next || matchMedia('(max-width: 760px)').matches) return;
-    gsap.to(card, { scale: 0.94, opacity: 0.5, ease: 'none', scrollTrigger: { trigger: next, start: 'top bottom', end: 'top 30%', scrub: true } });
+  // ---------- Service cards: each rises in from its side of the staircase ----------
+  document.querySelectorAll('.services .service').forEach((card, i) => {
+    gsap.from(card, {
+      x: i % 2 ? 80 : -80,
+      y: 60,
+      opacity: 0,
+      duration: 1.3,
+      ease: EXPO,
+      scrollTrigger: { trigger: card, start: 'top 90%' },
+    });
   });
 
   // ---------- Counters ----------
