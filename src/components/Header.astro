@@ -1,0 +1,33 @@
+---
+import Messengers from './Messengers.astro';
+import { company, nav } from '../data/site.js';
+
+const path = Astro.url.pathname;
+---
+
+<header class="header" data-header>
+  <div class="header__bar">
+    <a class="logo" href="/" aria-label="BestVisa — на главную">bestvisa<b>.</b></a>
+    <nav class="header__nav" id="site-nav" aria-label="Основное меню">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div class="header__meta">
+      <Messengers icons />
+      <a class="header__phone" href={company.phoneHref} data-goal="click_phone">{company.phone}</a>
+      <a class="btn btn--accent header__cta" href="#zayavka" data-goal="click_cta_header">Заявка</a>
+      <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

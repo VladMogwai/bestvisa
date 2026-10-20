@@ -1,0 +1,32 @@
+---
+// Compact dark header for articles, lists and the catalog.
+interface Props {
+  title: string;
+  crumbs: { name: string; href: string }[];
+  eyebrow?: string;
+  meta?: string;
+  lead?: string;
+  image?: string;
+}
+const { title, crumbs, eyebrow, meta, lead, image } = Astro.props;
+---
+
+<section class="hero hero--compact">
+  {
+    image && (
+      <div class="hero__bg">
+        <img src={image} alt="" fetchpriority="high" />
+      </div>
+    )
+  }
+  <div class="wrap hero__inner">
+    <ol class="crumbs">
+      {crumbs.map((c) => <li><a href={c.href}>{c.name}</a></li>)}
+    </ol>
+    {eyebrow && <span class="eyebrow" style="margin-bottom:20px;display:flex">{eyebrow}</span>}
+    <h1 data-split>{title}</h1>
+    {meta && <p class="hero__facts"><span>{meta}</span></p>}
+    {lead && <p class="hero__lead">{lead}</p>}
+    <slot />
+  </div>
+</section>

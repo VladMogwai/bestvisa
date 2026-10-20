@@ -1,0 +1,10 @@
+// Cloudflare preview only (static assets, no server code). Production lives on Beget.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "bestvisa-preview",
+  "compatibility_date": "2026-10-12",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

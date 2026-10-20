@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import FinalCta from './FinalCta.astro';
+import PostCards from './PostCards.astro';
+import { SITE_URL } from '../data/site.js';
+import { byPath } from '../data/pages.js';
+
+interface Props {
+  page: any;
+}
+const { page } = Astro.props;
+const list = page.sections.find((s: any) => s.kind === 'list');
+// The old list cards have no dates; take them from the articles themselves.
+const items = list.items.map((it: any) => {
+  const head = byPath[it.href]?.sections.find((s: any) => s.kind === 'articleHero');
+  return { ...it, date: it.date || head?.meta };
+});
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: page.h1, item: SITE_URL + page.path },
+    ],
+  },
+];
+---
+
+<Base title={page.title} description={page.description} path={page.path} schema={schema}>
+  <PageHead title={page.h1} crumbs={[{ name: 'Главная', href: '/' }]} lead={page.description} />
+  <section class="section" style="border-top:0">
+    <div class="wrap">
+      <PostCards items={items} />
+    </div>
+  </section>
+  <FinalCta page={page.h1} />
+</Base>

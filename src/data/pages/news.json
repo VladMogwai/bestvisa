@@ -1,0 +1,25 @@
+{
+ "path": "/news/",
+ "title": "Новости — BestVisa",
+ "description": "Новости паспортно-визового центра BestVisa.",
+ "h1": "Новости",
+ "breadcrumbs": [],
+ "hero": {
+  "term": "",
+  "price": "",
+  "lead": "Новости паспортно-визового центра BestVisa.",
+  "features": []
+ },
+ "sections": [
+  {
+   "kind": "list",
+   "items": [
+    {
+     "href": "/news/ssha-vvodjat-depozit-15-tysyach-dollarov-pri-podache-na-vizu",
+     "title": "США вводят депозит $15 000 при подаче на визы для граждан ряда стран",
+     "text": "Администрация Трампа расширила программу визовых залогов до 50 стран. Граждане должны вносить от $5 000 до $15 000 при подаче на визу B1/B2.…"
+    }
+   ]
+  }
+ ]
+}

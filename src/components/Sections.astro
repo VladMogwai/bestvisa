@@ -1,0 +1,362 @@
+---
+// Renders migrated page sections (src/data/pages/*.json) in the new design.
+import SocialProof from './SocialProof.astro';
+import FinalCta from './FinalCta.astro';
+import Messengers from './Messengers.astro';
+import Arrow from './Arrow.astro';
+
+interface Props {
+  page: any;
+  bandImage: string;
+}
+const { page, bandImage } = Astro.props;
+const sections: any[] = page.sections;
+const pad = (i: number) => String(i + 1).padStart(2, '0');
+const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > tabs[best].rows.length ? i : best), 0);
+---
+
+{
+  sections.map((s) => {
+    switch (s.kind) {
+      case 'socialProof':
+        return <SocialProof lead={s.lead} />;
+
+      case 'finalCta':
+        return <FinalCta page={page.h1} />;
+
+      case 'guarantees':
+        return (
+          <section class="section" id="guarantees">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Гарантии</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              <div class="cols guarantees__grid">
+                {s.items.map((html: string, i: number) => (
+                  <div>
+                    <span class="num">{pad(i)}</span>
+                    <p set:html={html.replace(/<\/strong>\s*—\s*(.)/, (_, c) => '</strong>' + c.toUpperCase())} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+
+      case 'pricing': {
+        const hot = richest(s.tabs);
+        return (
+          <section class="section dark" id="pricing">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Стоимость</span>
+                <h2 data-split>{s.title}</h2>
+                {s.intro && <div class="lead" set:html={s.intro} />}
+              </div>
+              <div class="plans">
+                {s.tabs.map((t: any, i: number) => (
+                  <article class:list={['plan', { 'plan--hot': i === hot }]}>
+                    {i === hot && <span class="plan__tag">Всё включено</span>}
+                    <h3>{t.name}</h3>
+                    <p class="plan__price">{t.total}</p>
+                    <ul class="checks">
+                      {t.rows.map((r: string) => (
+                        <li>{r}</li>
+                      ))}
+                    </ul>
+                    <a class:list={['btn', i === hot ? 'btn--accent' : 'btn--light']} href="#zayavka" data-order={`Тариф «${t.name}» — ${t.total}`}>
+                      Оставить заявку
+                    </a>
+                  </article>
+                ))}
+              </div>
+              {s.note && <div class="pricing__note" set:html={s.note} />}
+            </div>
+          </section>
+        );
+      }
+
+      case 'passportPricing':
+        return (
+          <section class="section dark" id="pricing">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Стоимость</span>
+                <h2 data-split>{s.title}</h2>
+                {s.note && <p class="lead">{s.note.replace(/^\*\s*/, '')}</p>}
+              </div>
+              {s.categories.map((c: any) => (
+                <div class="pp">
+                  <h3 class="pp__title">{c.title}</h3>
+                  <div class="plans">
+                    {c.types.map((t: any) => (
+                      <article class="plan">
+                        <h3>{t.name}</h3>
+                        <p class="pp__desc">{t.desc}</p>
+                        <ul class="pp__rows">
+                          {t.rows.map((r: any) => (
+                            <li>
+                              <a href="#zayavka" data-order={`Загранпаспорт ${t.name.toLowerCase()} ${c.title.toLowerCase()}: ${r.period} — ${r.price}`}>
+                                <span>{r.period}</span>
+                                <b>{r.price}</b>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                        {t.note && <p class="pp__desc">{t.note}</p>}
+                      </article>
+                    ))}
+                    {c.included.length > 0 && (
+                      <article class="plan plan--hot">
+                        <h3>Включено</h3>
+                        <ul class="checks">
+                          {c.included.map((x: string) => (
+                            <li>{x}</li>
+                          ))}
+                        </ul>
+                        <a class="btn btn--accent" href="#zayavka" data-order={`Загранпаспорт ${c.title.toLowerCase()}`}>
+                          Оставить заявку
+                        </a>
+                      </article>
+                    )}
+                  </div>
+                  {c.details.length > 0 && (
+                    <details class="pp__more">
+                      <summary>Что входит в стоимость и список документов</summary>
+                      <div class="cols cols--2">
+                        {c.details.map((d: any) => (
+                          <div>
+                            <h3>{d.title}</h3>
+                            <ul class="checks">
+                              {d.items.map((x: string) => (
+                                <li>{x}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+
+      case 'pricingTable':
+        return (
+          <section class="section" id="pricing">
+            <div class="wrap info">
+              <span class="eyebrow">Стоимость</span>
+              <h2>{s.title}</h2>
+              <div class="prose" set:html={s.html} />
+            </div>
+          </section>
+        );
+
+      case 'visaTypes':
+        return (
+          <section class="section" id="visa-types">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Виды виз</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              <div class="types">
+                {s.cards.map((c: any) => (
+                  <a class="type" href={c.href}>
+                    <span class="type__head">
+                      <span class="type__name">{c.name}</span>
+                      <span class="type__price">{c.price} ₽</span>
+                    </span>
+                    <span class="type__desc">{c.desc}</span>
+                    <span class="type__more"><Arrow /></span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+
+      case 'steps':
+        return (
+          <section class="section" id="steps">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Как мы работаем</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              <ol class="cols" style="list-style:none;margin:0;padding:0">
+                {s.items.map((it: any, i: number) => (
+                  <li>
+                    <span class="num">Шаг {pad(i)}</span>
+                    <h3>{it.title}</h3>
+                    <p set:html={it.text} />
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        );
+
+      case 'comparison':
+        return (
+          <section class="section" id="comparison">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">{s.subtitle || 'Сравнение'}</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              <div class="compare">
+                <div class="compare__col compare__col--self">
+                  <h3>{s.self.title}</h3>
+                  <ul class="checks checks--minus">
+                    {s.self.items.map((h: string) => (
+                      <li set:html={h} />
+                    ))}
+                  </ul>
+                </div>
+                <div class="compare__col compare__col--us">
+                  <h3>{s.us.title}</h3>
+                  <ul class="checks">
+                    {s.us.items.map((h: string) => (
+                      <li set:html={h} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+
+      case 'helpCases':
+        return (
+          <section class="band" id="help-cases">
+            <div class="band__bg">
+              <img src={bandImage} alt="" loading="lazy" />
+            </div>
+            <div class="wrap band__inner">
+              <span class="eyebrow">Сложные случаи</span>
+              <h2 data-split style="margin-top:20px">{s.title}</h2>
+              <ul class="band__list">
+                {s.items.map((h: string) => (
+                  <li set:html={h} />
+                ))}
+              </ul>
+              <a class="btn btn--accent" href="#zayavka" data-order="Сложный случай">
+                Разобрать мою ситуацию
+              </a>
+            </div>
+          </section>
+        );
+
+      case 'discount':
+        return (
+          <section class="section">
+            <div class="wrap discount">
+              <span class="discount__big">−25%</span>
+              <div>
+                <h2>{s.title}</h2>
+                <p>{s.text}</p>
+              </div>
+              <a class="btn btn--accent" href="#zayavka" data-order="Скидка 25% на визу при оформлении загранпаспорта">
+                Оформить со скидкой
+              </a>
+            </div>
+          </section>
+        );
+
+      case 'questionsCta':
+        return (
+          <section class="section">
+            <div class="wrap ask">
+              <div>
+                <h2>{s.title}</h2>
+                <p>{s.text}</p>
+              </div>
+              <div class="ask__actions">
+                <a class="btn btn--accent" href="#zayavka" data-order={`Вопрос: ${page.h1}`}>
+                  Задать вопрос
+                </a>
+                <Messengers />
+              </div>
+            </div>
+          </section>
+        );
+
+      case 'faq':
+        return (
+          <section class="section" id="faq">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Вопросы</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              <div class="faq">
+                {s.items.map((f: any, i: number) => (
+                  <details open={i === 0}>
+                    <summary>{f.q}</summary>
+                    <div class="prose" set:html={f.a} />
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+
+      case 'info':
+        return (
+          <section class="section" id={s.id}>
+            <div class="wrap info">
+              <span class="eyebrow">{s.id === 'visa-documents' ? 'Документы' : s.id === 'about-country' ? 'О стране' : 'Полезно знать'}</span>
+              {s.title && <h2 data-split>{s.title}</h2>}
+              <div class="prose" set:html={s.html} />
+            </div>
+          </section>
+        );
+
+      case 'countries':
+        return (
+          <section class="section" id="countries">
+            <div class="wrap">
+              <div class="section-head">
+                <span class="eyebrow">Страны</span>
+                <h2 data-split>{s.title}</h2>
+              </div>
+              {s.groups.map((g: any) => (
+                <div class="country-group">
+                  <h3>{g.title}</h3>
+                  <div class="chips">
+                    {g.links.map((l: any) => (
+                      <a class="chip" href={l.href}>
+                        {l.flag && <img src={l.flag} alt="" width="20" height="14" />}
+                        {l.name}
+                        {l.popular && <span class="chip__star" title="Популярное направление">★</span>}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+
+      case 'articleHero':
+      case 'article':
+      case 'related':
+      case 'raw':
+        return s.html ? (
+          <section class="section">
+            <div class="wrap info">
+              <span class="eyebrow" />
+              <div class="prose" set:html={s.html} />
+            </div>
+          </section>
+        ) : null;
+
+      default:
+        return null;
+    }
+  })
+}

@@ -1,0 +1,259 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadForm from '../components/LeadForm.astro';
+import SocialProof from '../components/SocialProof.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Wordmark from '../components/Wordmark.astro';
+import Geo from '../components/Geo.astro';
+import Arrow from '../components/Arrow.astro';
+import { company } from '../data/site.js';
+
+const files = import.meta.glob('../data/pages/*.json', { eager: true });
+const byPath = Object.fromEntries(Object.values(files).map((m: any) => [m.default.path, m.default]));
+const home = byPath['/'];
+const IMG = '/shared/assets/images';
+const price = (path: string) => byPath[path]?.hero?.price?.replace(' руб.', ' ₽') || '';
+const term = (path: string) => byPath[path]?.hero?.term?.replace('Срок оформления ', '') || '';
+
+const services = [
+  { name: 'Оформление виз', text: 'Визы в более чем 60 стран, надёжно и в срок', href: '/uslugi/oformlenie-viz/' },
+  { name: 'Оформление загранпаспортов', text: 'Комплексная подготовка документов для получения загранпаспорта', href: '/uslugi/poluchit-zagranpasport-v-moskve/' },
+  { name: 'Карты иностранных банков', text: 'Дистанционно и оперативно', href: '/uslugi/karty-inostrannykh-bankov/' },
+  { name: 'Страхование', text: 'Оформление страховых полисов российских компаний', href: '/uslugi/strakhovanie/' },
+  { name: 'Приглашения в РФ', text: 'Туристические и деловые приглашения', href: '/uslugi/priglasheniya-v-rf/' },
+  { name: 'ВНЖ в Европе', text: 'Digital Nomad и другие программы', href: '/uslugi/vnzh-v-evrope/' },
+  { name: 'Карта АТЭС', text: 'Оперативно подготовим документы для получения карты АТЭС', href: '/uslugi/karta-ates/' },
+  { name: 'Туры за рубеж', text: 'Индивидуальный подбор туров по всему миру', href: '/uslugi/tury-za-rubezh/' },
+];
+
+const dests = [
+  { name: 'Франция', href: '/uslugi/viza-vo-francziyu/', img: '/wp-content/uploads/2025/10/kader-ouattara-auX83Tb21m4-unsplash.webp', wide: true },
+  { name: 'Испания', href: '/uslugi/viza-v-ispaniyu/', img: `${IMG}/spain-country.webp` },
+  { name: 'Италия', href: '/uslugi/viza-v-italiyu/', img: `${IMG}/italy-country.webp` },
+  { name: 'Германия', href: '/uslugi/viza-v-germaniyu/', img: `${IMG}/germany-country.webp` },
+  { name: 'Греция', href: '/uslugi/viza-v-greciyu/', img: `${IMG}/greece-country.webp` },
+  { name: 'США', href: '/uslugi/viza-v-ssha/', img: `${IMG}/usa-country.webp`, wide: true },
+  { name: 'Япония', href: '/uslugi/viza-v-yaponiyu/', img: `${IMG}/japan-country.webp` },
+  { name: 'Великобритания', href: '/uslugi/viza-v-britaniyu/', img: `${IMG}/uk-country.webp` },
+  { name: 'Канада', href: '/uslugi/viza-v-kanadu/', img: `${IMG}/canada-country.webp` },
+  { name: 'Китай', href: '/uslugi/viza-v-kitay/', img: `${IMG}/china-country.webp` },
+];
+
+const moreCountries = [
+  ['Португалию', '/uslugi/viza-v-portugaliyu/'],
+  ['Швейцарию', '/uslugi/viza-v-shveytsariyu/'],
+  ['Венгрию', '/uslugi/viza-v-vengriyu/'],
+  ['Словению', '/uslugi/viza-v-sloveniyu/'],
+  ['Болгарию', '/uslugi/viza-v-bolgariyu/'],
+  ['Польшу', '/uslugi/viza-v-polshe/'],
+  ['Латвию', '/uslugi/viza-v-latviyu/'],
+  ['Литву', '/uslugi/viza-v-litvu/'],
+  ['Эстонию', '/uslugi/viza-v-estoniyu/'],
+];
+
+const passports = [
+  ['Загранпаспорт срочно', '/uslugi/zagran-passport-srochno/'],
+  ['Загранпаспорт', '/uslugi/poluchit-zagranpasport-v-moskve/'],
+  ['Биометрический на 10 лет', '/uslugi/zagranpasport-10-lev-novogo-obrazca/'],
+  ['Старого образца на 5 лет', '/uslugi/zagran-starogo-obrazca-5-let/'],
+  ['За 5 дней', '/uslugi/poluchit-zagranpasport-v-moskve/5-dney'],
+  ['За 7 дней', '/uslugi/poluchit-zagranpasport-v-moskve/7-dney'],
+  ['За 10 дней', '/uslugi/poluchit-zagranpasport-v-moskve/10-dney'],
+  ['За 14 дней', '/uslugi/poluchit-zagranpasport-v-moskve/14-dney'],
+  ['За неделю', '/uslugi/poluchit-zagranpasport-v-moskve/nedelya'],
+  ['За 2 недели', '/uslugi/poluchit-zagranpasport-v-moskve/2-nedeli'],
+  ['За 3 недели', '/uslugi/poluchit-zagranpasport-v-moskve/3-nedeli'],
+  ['Загранпаспорт за месяц', '/uslugi/poluchit-zagranpasport-v-moskve/za-mesyac/'],
+  ['Экспресс загранпаспорт', '/uslugi/ekspress-zagranpasport/'],
+];
+
+const why = [
+  ['Работаем по договору', 'Все условия фиксируются документально. Вы защищены юридически на каждом этапе оформления.'],
+  ['98% одобрений', 'Благодаря опыту и знанию требований консульств, мы обеспечиваем максимальный процент успешных заявлений.'],
+  ['С 2013 года на рынке', 'Более 20 000 успешно оформленных виз и загранпаспортов. Решаем даже нестандартные случаи.'],
+  ['Прозрачная ценовая политика', 'Стоимость оговаривается заранее, никаких скрытых платежей и дополнительных комиссий.'],
+  ['Индивидуальный подход', 'Персональный менеджер ведёт вашу заявку от консультации до получения документа.'],
+  ['Удобное расположение', 'Офис в центре Москвы на Тверской — метро Тверская, Пушкинская, Чеховская.'],
+];
+
+const posts = [
+  { href: '/blog/shengenskaya-viza', date: '31.07.2025', title: 'Шенгенская виза: как оформить, документы, сроки и стоимость', text: 'Разбираем всё, что нужно знать о шенгенской визе: какие документы собирать, сколько стоит, как подать заявление и каковы сроки рассмотрения.' },
+  { href: '/blog/viza-vo-franciyu-polnyj-gid', date: '27.02.2026', title: 'Виза во Францию для россиян в 2026 году', text: 'Как оформить визу во Францию в 2026 году: требования, документы, сроки, консульский сбор и лайфхаки для успешной подачи.' },
+  { href: '/blog/viza-v-yaponiyu-polnyj-gid', date: '27.02.2026', title: 'Виза в Японию для россиян в 2026 году', text: 'Всё о японской визе: типы виз, необходимые документы, сроки оформления, стоимость услуг и советы от экспертов BestVisa.' },
+  { href: '/news/ssha-vvodjat-depozit-15-tysyach-dollarov-pri-podache-na-vizu', date: '20.03.2026', title: 'США вводят депозит $15 000 при подаче на визы для граждан ряда стран', text: 'Администрация Трампа расширила программу визовых залогов до 50 стран. Граждане должны вносить от $5 000 до $15 000 при подаче на визу B1/B2.' },
+];
+---
+
+<Base title={home.title} description={home.description} path="/">
+  <section class="hero hero--home">
+    <Geo />
+    <div class="wrap hero__inner">
+      <Wordmark />
+      <h1 data-split><em>Помощь</em> в оформлении <em>виз</em> и <em>загранпаспортов</em> в Москве</h1>
+      <div class="hero__grid">
+        <div data-fade>
+          <a class="trust" href={company.rating.url} target="_blank" rel="noopener nofollow">
+            <span class="trust__ya">Я</span>
+            <span>Надёжный бизнес <b>{company.rating.value}</b> <span class="trust__stars">★★★★★</span> {company.rating.count} отзыва</span>
+          </a>
+          <p class="hero__lead">Компания BestVisa специализируется на оформлении виз и загранпаспортов, а также оказывает ряд других услуг.</p>
+          <LeadForm page="Главная" />
+        </div>
+        <div class="hero__media" data-media>
+          <img src={`${IMG}/about-bestvisa.webp`} alt="" fetchpriority="high" data-parallax />
+        </div>
+      </div>
+      <ul class="hero__features" data-stagger>
+        <li>С 2013 года помогли {company.clients} клиентам</li>
+        <li>Оформление виз в более чем 60 стран</li>
+        <li>Загранпаспорта в срок от 1 дня</li>
+        <li>Работаем по договору, без скрытых платежей</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="home-services">
+    <Geo variant="b" />
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Услуги</span>
+        <h2 data-split>Всё для поездки за границу — в одном месте</h2>
+      </div>
+      <div class="services">
+        {
+          services.map((s, i) => (
+            <a class="service" href={s.href}>
+              <svg class="geo-card" viewBox="0 0 400 400" aria-hidden="true">
+                <circle cx="200" cy="200" r="160" />
+                <circle cx="290" cy="250" r="90" />
+                <line x1="0" y1="380" x2="400" y2="40" />
+              </svg>
+              <span class="num">{String(i + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}</span>
+              <h3>{s.name}</h3>
+              <p>{s.text}</p>
+              <Arrow />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-discount">
+    <div class="wrap discount">
+      <span class="discount__big">−25%</span>
+      <div>
+        <h2>При оформлении загранпаспорта — скидка на <a href="/uslugi/oformlenie-viz/">визу 25%</a></h2>
+        <p>Закажите оформление загранпаспорта и получите скидку на любую визу. Узнайте подробности у специалиста.</p>
+      </div>
+      <a class="btn btn--accent" href="#zayavka" data-order="Скидка 25% на визу при оформлении загранпаспорта">Оформить со скидкой</a>
+    </div>
+  </section>
+
+  <section class="section" id="home-visas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Направления</span>
+        <h2 data-split><a href="/uslugi/oformlenie-viz/" style="text-decoration:none">Оформление виз</a> в более чем 60 стран</h2>
+        <p class="lead">Собираем документы, записываем на подачу и сопровождаем до получения паспорта с визой.</p>
+      </div>
+      <div class="dests">
+        {
+          dests.map((d) => (
+            <a class:list={['dest', { 'dest--wide': d.wide }]} href={d.href}>
+              <img src={d.img} alt={`Виза в ${d.name}`} loading="lazy" />
+              <div class="dest__body">
+                <h3>{d.name}</h3>
+                {price(d.href) && (
+                  <span class="dest__meta">
+                    <strong>{price(d.href)}</strong>
+                    {term(d.href)}
+                  </span>
+                )}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <div class="chips" style="margin-top:32px">
+        {moreCountries.map(([n, h]) => <a class="chip" href={h}>В {n}</a>)}
+        <a class="chip chip--accent" href="/uslugi/oformlenie-viz/">Все страны →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-passports">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Загранпаспорт</span>
+        <h2 data-split><a href="/uslugi/poluchit-zagranpasport-v-moskve/" style="text-decoration:none">Оформление загранпаспортов</a> в срок от 1 дня</h2>
+        <p class="lead">Биометрический на 10 лет и старого образца на 5 лет. Выберите срок — подготовим документы и сопроводим подачу.</p>
+      </div>
+      <div class="chips">
+        {passports.map(([n, h]) => <a class="chip" href={h}>{n}</a>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Почему мы</span>
+        <h2 data-split>Почему выбирают нас</h2>
+        <p class="lead">Каждый пункт — это то, что отличает BestVisa от других визовых центров.</p>
+      </div>
+      <div class="cols">
+        {
+          why.map(([t, p], i) => (
+            <div>
+              <span class="num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{t}</h3>
+              <p>{p}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <SocialProof />
+
+  <FinalCta page="Главная" />
+
+  <section class="section" id="home-about">
+    <div class="wrap about">
+      <div>
+        <span class="eyebrow">О компании</span>
+        <h2 data-split>Паспортно-визовый центр Best Visa</h2>
+        <p>Best Visa — визовый центр в Москве на Тверской и Пушкинской. С 2013 года оказываем полное сопровождение в оформлении загранпаспортов, виз и сопутствующих документов.</p>
+        <p>Помогаем получить загранпаспорт старого образца (на 5 лет) и биометрический (на 10 лет), оформляем визы для любых целей (туристические, бизнес, учебные, медицинские, частные), а также делаем приглашения для иностранцев в Россию.</p>
+        <p>Также оформляем карты иностранных банков, карту АТЭС. Работаем с физическими лицами и корпоративными клиентами. За время работы оформили более {company.clients} виз и загранпаспортов, а благодаря опыту команды успешно решаем даже нестандартные случаи.</p>
+        <a class="btn btn--ghost" href="/o-kompanii-best-visa/">Подробнее о компании →</a>
+      </div>
+      <div class="about__media" data-media>
+        <img src={`${IMG}/2026-01-30_00-58-53.webp`} alt="Паспортно-визовый центр BestVisa" loading="lazy" width="960" height="1200" data-parallax />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-blog">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Блог и новости</span>
+        <h2 data-split>Полезное перед поездкой</h2>
+        <p class="lead"><a href="/blog/">Все статьи →</a> &nbsp; <a href="/news/">Все новости →</a></p>
+      </div>
+      <div class="posts">
+        {
+          posts.map((p) => (
+            <a class="post" href={p.href}>
+              <time>{p.date}</time>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

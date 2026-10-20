@@ -1,0 +1,93 @@
+---
+import Base from '../layouts/Base.astro';
+import LeadForm from './LeadForm.astro';
+import Sections from './Sections.astro';
+import Geo from './Geo.astro';
+import { SITE_URL, company } from '../data/site.js';
+import { heroImage } from '../data/pages.js';
+
+interface Props {
+  page: any;
+}
+const { page } = Astro.props;
+const heroBg = heroImage(page);
+
+const sections = page.sections.some((s: any) => s.kind === 'finalCta') ? page.sections : [...page.sections, { kind: 'finalCta' }];
+const pricing = page.sections.find((s: any) => s.kind === 'pricing');
+const faq = page.sections.find((s: any) => s.kind === 'faq');
+const priceNum = (s: string) => Number((s || '').replace(/[^\d]/g, '')) || undefined;
+const strip = (h: string) => h.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const crumbs = [{ name: 'Главная', href: '/' }, ...page.breadcrumbs, { name: page.h1, href: page.path }];
+const schema: object[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: SITE_URL + c.href })),
+  },
+  {
+    '@type': 'Service',
+    name: page.h1,
+    description: page.description,
+    serviceType: page.h1,
+    areaServed: { '@type': 'Country', name: 'Россия' },
+    provider: { '@id': `${SITE_URL}/#localbusiness` },
+    ...(pricing && {
+      offers: pricing.tabs.map((t: any) => ({
+        '@type': 'Offer',
+        name: t.name,
+        price: priceNum(t.total),
+        priceCurrency: 'RUB',
+        url: SITE_URL + page.path + '#pricing',
+      })),
+    }),
+  },
+];
+if (faq) {
+  schema.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.items.map((f: any) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: strip(f.a) } })),
+  });
+}
+---
+
+<Base title={page.title} description={page.description} path={page.path} image={heroBg} schema={schema}>
+  <section class="hero">
+    <Geo />
+    <div class="wrap hero__inner">
+      <ol class="crumbs">
+        {crumbs.slice(0, -1).map((c) => <li><a href={c.href}>{c.name}</a></li>)}
+      </ol>
+      <div class="hero__grid">
+        <div>
+          <a class="trust" href={company.rating.url} target="_blank" rel="noopener nofollow">
+            {page.flag ? <span class="hero__flag" style="font-size:36px;margin:0"><img src={page.flag} alt="" /></span> : <span class="trust__ya">Я</span>}
+            <span>Надёжный бизнес <b>{company.rating.value}</b> <span class="trust__stars">★★★★★</span> {company.rating.count} оценки на Яндексе</span>
+          </a>
+          <h1 data-split>{page.h1}</h1>
+          {
+            (page.hero?.term || page.hero?.price) && (
+              <p class="hero__facts" data-fade>
+                {page.hero.price && <strong>{page.hero.price}</strong>}
+                {page.hero.term && <span>{page.hero.term}</span>}
+              </p>
+            )
+          }
+          {page.hero?.lead && <p class="hero__lead" data-fade set:html={page.hero.lead} />}
+          <div data-fade><LeadForm page={page.h1} /></div>
+        </div>
+        <div class="hero__media" data-media>
+          <img src={heroBg} alt="" fetchpriority="high" data-parallax />
+          {page.hero?.image && <img class="hero__passport" src={page.hero.image} alt={page.hero.imageAlt || ''} width="520" height="520" data-float />}
+        </div>
+      </div>
+      {
+        page.hero?.features?.length > 0 && (
+          <ul class="hero__features" data-stagger>
+            {page.hero.features.map((f: string) => <li set:html={f} />)}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  <Sections page={{ ...page, sections }} bandImage={heroBg} />
+</Base>

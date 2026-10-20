@@ -1,0 +1,294 @@
+{
+ "path": "/uslugi/oformlenie-viz/",
+ "title": "Оформление визы в Москве — помощь в оформлении визы",
+ "description": "Оформление визы для туристических, деловых и гостевых поездок. Полное сопровождение, подготовка документов, консультации на всех этапах. Помощь в оформлении виз в более чем 60 стран мира. ",
+ "h1": "Оформление виз",
+ "breadcrumbs": [],
+ "hero": {
+  "term": "",
+  "price": "",
+  "lead": "Оформление визы для туристических, деловых и гостевых поездок. Полное сопровождение, подготовка документов, консультации на всех этапах. Помощь в оформлении виз в более чем 60 стран мира.",
+  "features": [
+   "С 2013 года помогли 21&nbsp;623&nbsp;клиентам",
+   "Запись на подачу без очередей и ожидания",
+   "Консультация и поддержка на всех этапах",
+   "Собираем весь пакет документов"
+  ]
+ },
+ "sections": [
+  {
+   "kind": "countries",
+   "title": "В какие страны оформляем визы",
+   "groups": [
+    {
+     "title": "Шенгенская зона",
+     "links": [
+      {
+       "name": "Шенгенская виза",
+       "href": "/uslugi/shengenskaya-viza-v-moskve/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23003399' width='16' height='10'/%3E%3Cdefs%3E%3Cpolygon id='s' points='0.00,-0.38 0.09,-0.12 0.36,-0.12 0.14,0.04 0.22,0.31 0.00,0.15 -0.22,0.31 -0.14,0.04 -0.36,-0.12 -0.09,-0.12'/%3E%3C/defs%3E%3Cuse href='%23s' x='8.0' y='1.8' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='9.6' y='2.23' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='10.77' y='3.4' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='11.2' y='5.0' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='10.77' y='6.6' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='9.6' y='7.77' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='8.0' y='8.2' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='6.4' y='7.77' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='5.23' y='6.6' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='4.8' y='5.0' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='5.23' y='3.4' fill='%23FFCC00'/%3E%3Cuse href='%23s' x='6.4' y='2.23' fill='%23FFCC00'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Франция",
+       "href": "/uslugi/viza-vo-francziyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='900' height='600' fill='%23ED2939'/%3E%3Crect width='600' height='600' fill='%23fff'/%3E%3Crect width='300' height='600' fill='%23002395'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Испания",
+       "href": "/uslugi/viza-v-ispaniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23c60b1e' width='16' height='10'/%3E%3Crect fill='%23ffc400' y='2.5' width='16' height='5'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Италия",
+       "href": "/uslugi/viza-v-italiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23009246' width='5.33' height='10'/%3E%3Crect fill='%23fff' x='5.33' width='5.34' height='10'/%3E%3Crect fill='%23ce2b37' x='10.67' width='5.33' height='10'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Австрия",
+       "href": "/uslugi/viza-v-avstriyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23ED2939' width='16' height='3.33'/%3E%3Crect fill='%23fff' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23ED2939' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Бельгия",
+       "href": "/uslugi/viza-v-belgiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 13'%3E%3Crect fill='%23000' width='5' height='13'/%3E%3Crect fill='%23FAE042' x='5' width='5' height='13'/%3E%3Crect fill='%23ED2939' x='10' width='5' height='13'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Болгария",
+       "href": "/uslugi/viza-v-bolgariyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='3.33'/%3E%3Crect fill='%2300966e' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23d62612' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Венгрия",
+       "href": "/uslugi/viza-v-vengriyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23ce2939' width='16' height='3.33'/%3E%3Crect fill='%23fff' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23477050' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Германия",
+       "href": "/uslugi/viza-v-germaniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23000' width='16' height='3.33'/%3E%3Crect fill='%23dd0000' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23ffce00' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Греция",
+       "href": "/uslugi/viza-v-greciyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 18'%3E%3Crect fill='%230d5eaf' width='27' height='18'/%3E%3Cg fill='%23fff'%3E%3Crect y='2' width='27' height='2'/%3E%3Crect y='6' width='27' height='2'/%3E%3Crect y='10' width='27' height='2'/%3E%3Crect y='14' width='27' height='2'/%3E%3C/g%3E%3Crect fill='%230d5eaf' width='10' height='10'/%3E%3Crect fill='%23fff' x='4' width='2' height='10'/%3E%3Crect fill='%23fff' y='4' width='10' height='2'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Латвия",
+       "href": "/uslugi/viza-v-latviyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%239b2335' width='16' height='4'/%3E%3Crect fill='%23fff' y='4' width='16' height='2'/%3E%3Crect fill='%239b2335' y='6' width='16' height='4'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Литва",
+       "href": "/uslugi/viza-v-litvu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 9'%3E%3Crect fill='%23FDB913' width='15' height='3'/%3E%3Crect fill='%23006A44' y='3' width='15' height='3'/%3E%3Crect fill='%23C1272D' y='6' width='15' height='3'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Мальта",
+       "href": "/uslugi/viza-na-maltu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='8' height='10'/%3E%3Crect fill='%23cf142b' x='8' width='8' height='10'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Нидерланды",
+       "href": "/uslugi/viza-v-niderlandy/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23AE1C28' width='16' height='3.33'/%3E%3Crect fill='%23fff' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%2321468B' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Норвегия",
+       "href": "/uslugi/viza-v-norvegiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 16'%3E%3Crect fill='%23BA0C2F' width='22' height='16'/%3E%3Crect fill='%23fff' x='6' width='4' height='16'/%3E%3Crect fill='%23fff' y='6' width='22' height='4'/%3E%3Crect fill='%2300205B' x='7' width='2' height='16'/%3E%3Crect fill='%2300205B' y='7' width='22' height='2'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Польша",
+       "href": "/uslugi/viza-v-polshe/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='5'/%3E%3Crect fill='%23dc143c' y='5' width='16' height='5'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Португалия",
+       "href": "/uslugi/viza-v-portugaliyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 10'%3E%3Crect fill='%23006600' width='6' height='10'/%3E%3Crect fill='%23FF0000' x='6' width='9' height='10'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Румыния",
+       "href": "/uslugi/viza-v-rumyniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 10'%3E%3Crect fill='%23002B7F' width='5' height='10'/%3E%3Crect fill='%23FCD116' x='5' width='5' height='10'/%3E%3Crect fill='%23CE1126' x='10' width='5' height='10'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Словакия",
+       "href": "/uslugi/viza-v-slovakiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect fill='%23fff' width='900' height='200'/%3E%3Crect fill='%230b4ea2' y='200' width='900' height='200'/%3E%3Crect fill='%23ee1c25' y='400' width='900' height='200'/%3E%3Cg transform='translate(270,50)'%3E%3Cpath d='M0,30 Q0,0 30,0 L170,0 Q200,0 200,30 L200,260 Q200,360 100,400 Q0,360 0,260 Z' fill='%23ee1c25' stroke='%23fff' stroke-width='12'/%3E%3Cpath d='M20,42 Q20,22 42,22 L158,22 Q180,22 180,42 L180,252 Q180,340 100,376 Q20,340 20,252 Z' fill='%23ee1c25'/%3E%3Cpath d='M20,240 Q50,220 100,270 Q150,220 180,240 L180,252 Q180,340 100,376 Q20,340 20,252 Z' fill='%230b4ea2'/%3E%3Cellipse cx='100' cy='280' rx='55' ry='20' fill='%230b4ea2'/%3E%3Cellipse cx='60' cy='260' rx='30' ry='35' fill='%230b4ea2'/%3E%3Cellipse cx='140' cy='260' rx='30' ry='35' fill='%230b4ea2'/%3E%3Crect x='90' y='100' width='20' height='120' fill='%23fff'/%3E%3Crect x='60' y='130' width='80' height='20' fill='%23fff'/%3E%3Crect x='70' y='90' width='60' height='20' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Словения",
+       "href": "/uslugi/viza-v-sloveniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect fill='%23fff' width='900' height='200'/%3E%3Crect fill='%23003DA5' y='200' width='900' height='200'/%3E%3Crect fill='%23ED1C24' y='400' width='900' height='200'/%3E%3Cg transform='translate(120,20)'%3E%3Cpath d='M0,30 Q0,0 30,0 L170,0 Q200,0 200,30 L200,150 Q200,200 100,220 Q0,200 0,150 Z' fill='%23003DA5' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M100,120 L60,180 L140,180 Z' fill='%23fff'/%3E%3Cpath d='M65,150 L30,180 L100,180 Z' fill='%23fff'/%3E%3Cpath d='M135,150 L100,180 L170,180 Z' fill='%23fff'/%3E%3Cpath d='M40,180 Q70,170 100,180 Q130,170 160,180' fill='none' stroke='%23003DA5' stroke-width='5'/%3E%3Cpath d='M40,188 Q70,178 100,188 Q130,178 160,188' fill='none' stroke='%23003DA5' stroke-width='5'/%3E%3Cpolygon points='60,40 63,50 73,50 65,56 68,66 60,60 52,66 55,56 47,50 57,50' fill='%23FFD700'/%3E%3Cpolygon points='100,25 103,35 113,35 105,41 108,51 100,45 92,51 95,41 87,35 97,35' fill='%23FFD700'/%3E%3Cpolygon points='140,40 143,50 153,50 145,56 148,66 140,60 132,66 135,56 127,50 137,50' fill='%23FFD700'/%3E%3C/g%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Финляндия",
+       "href": "/uslugi/viza-v-finlyandiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 11'%3E%3Crect fill='%23fff' width='18' height='11'/%3E%3Crect fill='%23003580' x='5' width='3' height='11'/%3E%3Crect fill='%23003580' y='4' width='18' height='3'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Хорватия",
+       "href": "/uslugi/viza-v-khorvatiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23FF0000' width='16' height='3.33'/%3E%3Crect fill='%23fff' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23171796' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Чехия",
+       "href": "/uslugi/viza-v-chehiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='5'/%3E%3Crect fill='%23d7141a' y='5' width='16' height='5'/%3E%3Cpolygon fill='%2311457e' points='0,0 8,5 0,10'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Швейцария",
+       "href": "/uslugi/viza-v-shveytsariyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Crect fill='%23FF0000' width='10' height='10'/%3E%3Crect fill='%23fff' x='3.5' y='1.5' width='3' height='7'/%3E%3Crect fill='%23fff' x='1.5' y='3.5' width='7' height='3'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Швеция",
+       "href": "/uslugi/viza-v-shvetsiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23006AA7' width='16' height='10'/%3E%3Crect fill='%23FECC02' x='5' width='2' height='10'/%3E%3Crect fill='%23FECC02' y='4' width='16' height='2'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Эстония",
+       "href": "/uslugi/viza-v-estoniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%230072CE' width='16' height='3.33'/%3E%3Crect fill='%23000' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23fff' y='6.67' width='16' height='3.33'/%3E%3C/svg%3E",
+       "popular": false
+      }
+     ]
+    },
+    {
+     "title": "Другие страны Европы",
+     "links": [
+      {
+       "name": "Великобритания",
+       "href": "/uslugi/viza-v-britaniyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23012169' width='16' height='10'/%3E%3Cpath stroke='%23fff' stroke-width='2' d='M0 0L16 10M16 0L0 10'/%3E%3Cpath stroke='%23c8102e' stroke-width='1' d='M0 0L16 10M16 0L0 10'/%3E%3Crect fill='%23fff' x='6.5' width='3' height='10'/%3E%3Crect fill='%23fff' y='3.5' width='16' height='3'/%3E%3Crect fill='%23c8102e' x='7' width='2' height='10'/%3E%3Crect fill='%23c8102e' y='4' width='16' height='2'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Кипр",
+       "href": "/uslugi/viza-na-kipr/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='10'/%3E%3Cellipse fill='%23d47600' cx='8' cy='4' rx='3.5' ry='1.8'/%3E%3Crect fill='%23435125' x='5.5' y='6.2' width='.8' height='1.5'/%3E%3Crect fill='%23435125' x='9.7' y='6.2' width='.8' height='1.5'/%3E%3C/svg%3E",
+       "popular": true
+      }
+     ]
+    },
+    {
+     "title": "Америка",
+     "links": [
+      {
+       "name": "США",
+       "href": "/uslugi/viza-v-ssha/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 10'%3E%3Crect fill='%23bf0a30' width='19' height='10'/%3E%3Cg fill='%23fff'%3E%3Crect y='.77' width='19' height='.77'/%3E%3Crect y='2.31' width='19' height='.77'/%3E%3Crect y='3.85' width='19' height='.77'/%3E%3Crect y='5.38' width='19' height='.77'/%3E%3Crect y='6.92' width='19' height='.77'/%3E%3Crect y='8.46' width='19' height='.77'/%3E%3C/g%3E%3Crect fill='%23002868' width='7.6' height='5.38'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Канада",
+       "href": "/uslugi/viza-v-kanadu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 8'%3E%3Crect fill='%23f00' width='4' height='8'/%3E%3Crect fill='%23fff' x='4' width='8' height='8'/%3E%3Crect fill='%23f00' x='12' width='4' height='8'/%3E%3Cpath fill='%23f00' d='M8 1.5L7.2 3.2 6 2.8 6.5 4.2 5 4.5 6.3 5.3 5.8 6.5h4.4L9.7 5.3 11 4.5 9.5 4.2 10 2.8 8.8 3.2z'/%3E%3C/svg%3E",
+       "popular": true
+      }
+     ]
+    },
+    {
+     "title": "Азия",
+     "links": [
+      {
+       "name": "Япония",
+       "href": "/uslugi/viza-v-yaponiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='10'/%3E%3Ccircle fill='%23bc002d' cx='8' cy='5' r='3'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Таиланд",
+       "href": "/uslugi/viza-v-tailand/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Crect width='900' height='600' fill='%23ED1C24'/%3E%3Crect y='100' width='900' height='400' fill='%23FFFFFF'/%3E%3Crect y='200' width='900' height='200' fill='%23241D4F'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Индия",
+       "href": "/uslugi/viza-v-indiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23ff9933' width='16' height='3.33'/%3E%3Crect fill='%23fff' y='3.33' width='16' height='3.34'/%3E%3Crect fill='%23138808' y='6.67' width='16' height='3.33'/%3E%3Ccircle fill='none' stroke='%23000080' stroke-width='.4' cx='8' cy='5' r='1.3'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Китай",
+       "href": "/uslugi/viza-v-kitay/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23de2910' width='16' height='10'/%3E%3Cpath fill='%23ffde00' d='M3 1.5l.5 1.5h1.5l-1.2.9.5 1.5L3 4.5l-1.3.9.5-1.5L1 3h1.5z'/%3E%3Ccircle fill='%23ffde00' cx='5.5' cy='1.2' r='.35'/%3E%3Ccircle fill='%23ffde00' cx='6.3' cy='2.2' r='.35'/%3E%3Ccircle fill='%23ffde00' cx='6.3' cy='3.5' r='.35'/%3E%3Ccircle fill='%23ffde00' cx='5.5' cy='4.3' r='.35'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Сингапур",
+       "href": "/uslugi/viza-v-singapur/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23ed2939' width='16' height='5'/%3E%3Crect fill='%23fff' y='5' width='16' height='5'/%3E%3Cpath fill='%23fff' d='M3.5 1a1.8 1.8 0 1 0 0 3 1.5 1.5 0 1 1 0-3z'/%3E%3Ccircle fill='%23fff' cx='5' cy='1.3' r='.3'/%3E%3Ccircle fill='%23fff' cx='5.8' cy='1.8' r='.3'/%3E%3Ccircle fill='%23fff' cx='5.8' cy='2.8' r='.3'/%3E%3Ccircle fill='%23fff' cx='5' cy='3.3' r='.3'/%3E%3Ccircle fill='%23fff' cx='4.3' cy='2.3' r='.3'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Тайвань",
+       "href": "/uslugi/viza-v-taivan/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fe0000' width='16' height='10'/%3E%3Crect fill='%23000095' width='8' height='5'/%3E%3Ccircle fill='%23fff' cx='4' cy='2.5' r='1.5'/%3E%3Ccircle fill='%23000095' cx='4' cy='2.5' r='1'/%3E%3C/svg%3E",
+       "popular": false
+      },
+      {
+       "name": "Южная Корея",
+       "href": "/uslugi/viza-v-yuzhnuyu-koreyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23fff' width='16' height='10'/%3E%3Cpath fill='%23cd2e3a' d='M5.5 5a2.5 2.5 0 0 1 5 0z'/%3E%3Cpath fill='%230047a0' d='M10.5 5a2.5 2.5 0 0 1-5 0z'/%3E%3C/svg%3E",
+       "popular": false
+      }
+     ]
+    },
+    {
+     "title": "Океания",
+     "links": [
+      {
+       "name": "Австралия",
+       "href": "/uslugi/viza-v-avstraliyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23012169' width='16' height='10'/%3E%3Cpath stroke='%23fff' stroke-width='1' d='M0 0L8 5M8 0L0 5'/%3E%3Crect fill='%23fff' x='3' width='2' height='5'/%3E%3Crect fill='%23fff' y='1.75' width='8' height='1.5'/%3E%3Crect fill='%23c8102e' x='3.35' width='1.3' height='5'/%3E%3Crect fill='%23c8102e' y='2' width='8' height='1'/%3E%3Ccircle fill='%23fff' cx='4' cy='8' r='.6'/%3E%3Ccircle fill='%23fff' cx='12' cy='3' r='.5'/%3E%3Ccircle fill='%23fff' cx='13.5' cy='5' r='.5'/%3E%3Ccircle fill='%23fff' cx='11.5' cy='7' r='.5'/%3E%3Ccircle fill='%23fff' cx='13' cy='8' r='.4'/%3E%3C/svg%3E",
+       "popular": true
+      },
+      {
+       "name": "Новая Зеландия",
+       "href": "/uslugi/viza-v-novuyu-zelandiyu/",
+       "flag": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3Crect fill='%23012169' width='16' height='10'/%3E%3Cpath stroke='%23fff' stroke-width='1' d='M0 0L8 5M8 0L0 5'/%3E%3Crect fill='%23fff' x='3' width='2' height='5'/%3E%3Crect fill='%23fff' y='1.75' width='8' height='1.5'/%3E%3Crect fill='%23c8102e' x='3.35' width='1.3' height='5'/%3E%3Crect fill='%23c8102e' y='2' width='8' height='1'/%3E%3Ccircle fill='%23c8102e' stroke='%23fff' stroke-width='.3' cx='12' cy='2.5' r='.6'/%3E%3Ccircle fill='%23c8102e' stroke='%23fff' stroke-width='.3' cx='13.5' cy='4.5' r='.5'/%3E%3Ccircle fill='%23c8102e' stroke='%23fff' stroke-width='.3' cx='12.5' cy='7' r='.5'/%3E%3Ccircle fill='%23c8102e' stroke='%23fff' stroke-width='.3' cx='11' cy='5.5' r='.45'/%3E%3C/svg%3E",
+       "popular": true
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "info",
+   "title": "Помощь в оформлении визы для любых целей поездки",
+   "html": "<p>Получение визы требует правильной подготовки документов, заполнения анкеты и соблюдения требований консульства. Ошибки в документах или неточности в анкете могут привести к дополнительным запросам или отказу.</p>\n<p>Наши специалисты оказывают помощь в оформлении визы для туристических, деловых, гостевых и других поездок. Мы проверяем документы, консультируем по требованиям выбранной страны и сопровождаем клиента на всех этапах оформления.</p>\n<p>Если вы планируете сделать визу впервые или хотите сократить риск ошибок при подаче заявления, мы поможем подготовить пакет документов и подскажем, как подать документы на визу с учетом актуальных требований.</p>\n<h2>Какие документы нужны для визы</h2>\n<p>Точный перечень зависит от страны назначения и цели поездки. Обычно для оформления требуются:</p>\n<ul>\n<li>Заграничный паспорт.</li>\n<li>Заполненная визовая анкета.</li>\n<li>Фотографии установленного образца.</li>\n<li>Подтверждение бронирования проживания.</li>\n<li>Подтверждение маршрута поездки или билетов.</li>\n<li>Документы о финансовом обеспечении.</li>\n<li>Справка с места работы или иные подтверждения занятости.</li>\n<li>Медицинская страховка (если требуется).</li>\n<li>Какие документы нужны для получения визыПеред подачей рекомендуется заранее проверить срок действия паспорта, требования к фотографиям и наличие дополнительных документов, которые могут запросить консульские службы.</li>\n</ul>\n<h2>Документы для подачи на визу</h2>\n<p>Наши специалисты помогут проверить комплект документов, выявить возможные ошибки и подготовить пакет для подачи в визовый центр или консульство.</p>"
+  },
+  {
+   "kind": "socialProof",
+   "lead": "Помогаем россиянам с 2013 года оформлять визы быстро, профессионально и без лишних хлопот."
+  }
+ ]
+}

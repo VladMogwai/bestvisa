@@ -1,0 +1,108 @@
+{
+ "path": "/",
+ "title": "Оформление виз и загранпаспортов в Москве — визовый центр BestVisa",
+ "description": "Паспортно-визовый центр BestVisa — оформление виз в более чем 60 стран, загранпаспорта, зарубежные карты. Работаем по договору, с гарантией результата.",
+ "h1": "Помощь в оформлении виз и загранпаспортов в Москве",
+ "breadcrumbs": [],
+ "hero": {
+  "term": "",
+  "price": "",
+  "lead": "Компания BestVisa специализируется на оформлении виз и загранпаспортов, а&nbsp;также оказывает ряд других услуг",
+  "image": "/shared/assets/images/main.webp",
+  "imageAlt": "BestVisa — визовый центр",
+  "features": [
+   "С 2013 года помогли 21&nbsp;623&nbsp;клиентам",
+   "Оформление виз в более чем 60 стран",
+   "Загранпаспорта в срок от 1 дня",
+   "Работаем по договору, без скрытых платежей"
+  ]
+ },
+ "sections": [
+  {
+   "kind": "raw",
+   "cls": "home-services",
+   "id": "home-services",
+   "html": "<a href=\"/uslugi/oformlenie-viz/\">\n                    <h3>Оформление виз</h3>\n                    <p>Визы в более чем 60 стран, надежно и в срок</p>\n            </a>\n            <a href=\"/uslugi/poluchit-zagranpasport-v-moskve/\">\n                    <h3>Оформление загранпаспортов</h3>\n                    <p>Комплексная подготовка документов для получения загранпаспорта</p>\n            </a>\n            <a href=\"/uslugi/karty-inostrannykh-bankov/\">\n                    <h3>Карты иностранных банков</h3>\n                    <p>Дистанционно и оперативно</p>\n            </a>\n            <a href=\"/uslugi/strakhovanie\">\n                    <h3>Страхование</h3>\n                    <p>Оформление страховых полисов российских компаний</p>\n            </a>\n            <a href=\"/uslugi/priglasheniya-v-rf\">\n                    <h3>Приглашения в РФ</h3>\n                    <p>Туристические и деловые приглашения</p>\n            </a>\n            <a href=\"/uslugi/vnzh-v-evrope\">\n                    <h3>ВНЖ в Европе</h3>\n                    <p>Digital Nomad и другие программы</p>\n            </a>\n            <a href=\"/uslugi/karta-ates\">\n                    <h3>Карта АТЭС</h3>\n                    <p>Оперативно подготовим документы для получения карты АТЭС</p>\n            </a>\n            <a href=\"/uslugi/tury-za-rubezh\">\n                    <h3>Туры за рубеж</h3>\n                    <p>Индивидуальный подбор туров по всему миру</p>\n            </a>"
+  },
+  {
+   "kind": "discount",
+   "title": "При оформлении загранпаспорта —скидка на визу 25%",
+   "text": "Закажите оформление загранпаспорта и получите скидку на любую визу. Узнайте подробности у специалиста."
+  },
+  {
+   "kind": "raw",
+   "cls": "home-visas",
+   "id": "home-visas",
+   "html": "<h2><a href=\"/uslugi/oformlenie-viz/\">Оформление виз</a></h2>\n            <a href=\"/uslugi/viza-vo-francziyu/\"> Во Францию</a><a href=\"/uslugi/viza-v-ispaniyu/\"> В Испанию</a><a href=\"/uslugi/viza-v-italiyu/\"> В Италию</a><a href=\"/uslugi/viza-v-germaniyu/\"> В Германию</a><a href=\"/uslugi/viza-v-britaniyu/\"> В Великобританию</a><a href=\"/uslugi/viza-v-ssha/\"> В США</a><a href=\"/uslugi/viza-v-kanadu/\"> В Канаду</a><a href=\"/uslugi/viza-v-yaponiyu/\"> В Японию</a><a href=\"/uslugi/viza-v-greciyu/\"> В Грецию</a><a href=\"/uslugi/viza-v-portugaliyu/\"> В Португалию</a><a href=\"/uslugi/viza-v-shveytsariyu/\"> В Швейцарию</a><a href=\"/uslugi/viza-v-vengriyu/\"> В Венгрию</a><a href=\"/uslugi/viza-v-sloveniyu/\"> В Словению</a><a href=\"/uslugi/viza-v-bolgariyu/\"> В Болгарию</a><a href=\"/uslugi/viza-v-polshe/\"> В Польшу</a><a href=\"/uslugi/viza-v-latviyu/\"> В Латвию</a><a href=\"/uslugi/viza-v-litvu/\"> В Литву</a><a href=\"/uslugi/viza-v-estoniyu/\"> В Эстонию</a>\n            <a href=\"/uslugi/oformlenie-viz/\">Все страны →</a>"
+  },
+  {
+   "kind": "raw",
+   "cls": "home-passports",
+   "id": "home-passports",
+   "html": "<h2><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/\">Оформление загранпаспортов</a></h2>\n            <a href=\"/uslugi/zagran-passport-srochno/\">Загранпаспорт срочно</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/\">Загранпаспорт</a><a href=\"/uslugi/zagranpasport-10-lev-novogo-obrazca/\">Биометрический<br>на 10 лет</a><a href=\"/uslugi/zagran-starogo-obrazca-5-let/\">Старого образца<br>на 5 лет</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/5-dney\">5 дней</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/7-dney\">7 дней</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/10-dney\">10 дней</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/14-dney\">14 дней</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/nedelya\">Неделю</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/2-nedeli\">2 недели</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/3-nedeli\">3 недели</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/za-mesyac/\">Загранпаспорт за месяц</a><a href=\"/uslugi/ekspress-zagranpasport/\">Экспресс загранпаспорт</a><a href=\"/uslugi/poluchit-zagranpasport-v-moskve/\">Подробнее →</a>"
+  },
+  {
+   "kind": "raw",
+   "cls": "home-why",
+   "id": "home-why",
+   "html": "<h2>Почему выбирают нас</h2>\n                <p>Каждый пункт — это то, что отличает BestVisa от других визовых центров</p>\n                    01\n                        <h3>Работаем по договору</h3>\n                        <p>Все условия фиксируются документально. Вы защищены юридически на каждом этапе оформления.</p>\n                    02\n                        <h3>98% одобрений</h3>\n                        <p>Благодаря опыту и знанию требований консульств, мы обеспечиваем максимальный процент успешных заявлений.</p>\n                    03\n                        <h3>С 2013 года на рынке</h3>\n                        <p>Более 20 000 успешно оформленных виз и загранпаспортов. Решаем даже нестандартные случаи.</p>\n                    04\n                        <h3>Прозрачная ценовая политика</h3>\n                        <p>Стоимость оговаривается заранее, никаких скрытых платежей и дополнительных комиссий.</p>\n                    05\n                        <h3>Индивидуальный подход</h3>\n                        <p>Персональный менеджер ведет вашу заявку от консультации до получения документа.</p>\n                    06\n                        <h3>Удобное расположение</h3>\n                        <p>Офис в центре Москвы на Тверской — метро Тверская, Пушкинская, Чеховская.</p>"
+  },
+  {
+   "kind": "socialProof",
+   "lead": "Помогаем россиянам с 2013 года оформлять визы быстро, профессионально и без лишних хлопот."
+  },
+  {
+   "kind": "finalCta"
+  },
+  {
+   "kind": "raw",
+   "cls": "home-about",
+   "id": "home-about",
+   "html": "<h2>Паспортно-визовый центр Best Visa</h2>\n                <p><strong>Best Visa</strong> — визовый центр в Москве на Тверской и Пушкинской. С 2013 года оказываем полное сопровождение в оформлении загранпаспортов, виз и сопутствующих документов.</p>\n                <p>Помогаем получить загранпаспорт старого образца (на 5 лет) и биометрический (на 10 лет), оформляем визы для любых целей (туристические, бизнес, учебные, медицинские, частные), а также делаем приглашения для иностранцев в Россию.</p>\n                <p>Также оформляем карты иностранных банков, карту АТЭС. Работаем с физическими лицами и корпоративными клиентами. За время работы оформили более <strong>21 623 виз и загранпаспортов</strong>, а благодаря опыту команды успешно решаем даже нестандартные случаи.</p>\n                <a href=\"/o-kompanii-best-visa/\">Подробнее о компании →</a>\n                <img src=\"/shared/assets/images/about-bestvisa.webp\" alt=\"Паспортно-визовый центр BestVisa\" loading=\"lazy\">"
+  },
+  {
+   "kind": "related",
+   "title": "Блог",
+   "more": "/blog/",
+   "items": [
+    {
+     "href": "/blog/shengenskaya-viza",
+     "title": "Шенгенская виза: как оформить, документы, сроки и стоимость",
+     "text": "Разбираем всё, что нужно знать о шенгенской визе: какие документы собирать, сколько стоит, как подать заявление и каковы сроки рассмотрения.",
+     "date": "31.07.2025"
+    },
+    {
+     "href": "/blog/viza-vo-franciyu-polnyj-gid",
+     "title": "Виза во Францию для россиян в 2026 году",
+     "text": "Как оформить визу во Францию в 2026 году: требования, документы, сроки, консульский сбор и лайфхаки для успешной подачи.",
+     "date": "27.02.2026"
+    },
+    {
+     "href": "/blog/viza-v-yaponiyu-polnyj-gid",
+     "title": "Виза в Японию для россиян в 2026 году",
+     "text": "Всё о японской визе: типы виз, необходимые документы, сроки оформления, стоимость услуг и советы от экспертов BestVisa.",
+     "date": "27.02.2026"
+    },
+    {
+     "href": "/blog/seriya-i-nomer-zagranpasporta",
+     "title": "Серия и номер загранпаспорта: где смотреть на развороте",
+     "text": "Девять цифр на странице с фото. Как писать в визовой анкете — без пробелов и «№». Чем номер бланка отличается и что ставить, если его нет.",
+     "date": "21.08.2026"
+    }
+   ]
+  },
+  {
+   "kind": "related",
+   "title": "Новости",
+   "more": "/news/",
+   "items": [
+    {
+     "href": "/news/ssha-vvodjat-depozit-15-tysyach-dollarov-pri-podache-na-vizu",
+     "title": "США вводят депозит $15 000 при подаче на визы для граждан ряда стран",
+     "text": "Администрация Трампа расширила программу визовых залогов до 50 стран. Граждане должны вносить от $5 000 до $15 000 при подаче на визу B1/B2....",
+     "date": "20.03.2026"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import FinalCta from './FinalCta.astro';
+import Sections from './Sections.astro';
+import { byPath } from '../data/pages.js';
+import { nav } from '../data/site.js';
+
+interface Props {
+  page: any;
+}
+const { page } = Astro.props;
+const countries = byPath['/uslugi/oformlenie-viz/'].sections.find((s: any) => s.kind === 'countries');
+---
+
+<Base title={page.title} description={page.description || 'Услуги паспортно-визового центра BestVisa в Москве: визы, загранпаспорта, карты иностранных банков, страхование, приглашения в РФ.'} path={page.path}>
+  <PageHead title={page.h1} crumbs={[{ name: 'Главная', href: '/' }]} image="/shared/assets/images/schengen-europe-landmarks.webp" />
+  <section class="section dark" style="border-top:0">
+    <div class="wrap">
+      <div class="services">
+        {
+          nav.map((s, i) => (
+            <a class="service" href={s.href}>
+              <span class="num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.name}</h3>
+              {byPath[s.href]?.hero?.price && <p>{byPath[s.href].hero.price}</p>}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <Sections page={{ ...page, sections: [countries] }} bandImage="" />
+  <FinalCta page={page.h1} />
+</Base>

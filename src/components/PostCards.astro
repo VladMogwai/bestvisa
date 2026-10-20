@@ -1,0 +1,18 @@
+---
+interface Props {
+  items: { href: string; title: string; text?: string; date?: string }[];
+}
+const { items } = Astro.props;
+---
+
+<div class="posts">
+  {
+    items.map((p) => (
+      <a class="post" href={p.href}>
+        {p.date && <time>{p.date}</time>}
+        <h3>{p.title}</h3>
+        {p.text && <p>{p.text}</p>}
+      </a>
+    ))
+  }
+</div>

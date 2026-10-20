@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Wordmark from '../components/Wordmark.astro';
+import { SITE_URL, IS_PREVIEW, METRIKA_ID, YANDEX_VERIFICATION, company } from '../data/site.js';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  schema?: object[];
+  noindex?: boolean;
+}
+const { title, description, path, image = '/shared/assets/images/about-bestvisa.webp', schema = [], noindex = false } = Astro.props;
+const canonical = SITE_URL + path;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['Organization', 'TravelAgency'],
+      '@id': `${SITE_URL}/#organization`,
+      name: 'BestVisa',
+      alternateName: 'БестВиза',
+      url: `${SITE_URL}/`,
+      logo: `${SITE_URL}/apple-touch-icon.png`,
+      telephone: '+7-495-085-99-97',
+      email: company.email,
+      sameAs: ['https://t.me/bestvisasbot', `https://yandex.ru/maps/org/${company.yandexOrgId}`],
+      address: { '@type': 'PostalAddress', streetAddress: company.street, addressLocality: 'Москва', addressCountry: 'RU' },
+    },
+    {
+      '@type': 'TravelAgency',
+      '@id': `${SITE_URL}/#localbusiness`,
+      name: 'BestVisa',
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/shared/assets/images/about-bestvisa.webp`,
+      telephone: '+7-495-085-99-97',
+      priceRange: '₽₽',
+      address: { '@type': 'PostalAddress', streetAddress: company.street, addressLocality: 'Москва', addressCountry: 'RU' },
+      geo: { '@type': 'GeoCoordinates', latitude: company.geo.lat, longitude: company.geo.lon },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '10:00',
+        closes: '18:00',
+      },
+      parentOrganization: { '@id': `${SITE_URL}/#organization` },
+    },
+    ...schema,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="ru" data-env={IS_PREVIEW ? 'preview' : 'production'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {(IS_PREVIEW || noindex) && <meta name="robots" content="noindex, nofollow" />}
+    {!IS_PREVIEW && <meta name="yandex-verification" content={YANDEX_VERIFICATION} />}
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#091b20" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="BestVisa" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={SITE_URL + image} />
+
+    <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/favicon-120.png" sizes="120x120" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://mc.yandex.ru" />
+
+    <script is:inline>
+      (function (d) {
+        d.classList.add('js');
+        try {
+          if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !sessionStorage.getItem('bv_intro')) d.classList.add('js-intro');
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(org)} />
+
+    {
+      !IS_PREVIEW && (
+        <script is:inline define:vars={{ METRIKA_ID }}>
+          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+          (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+METRIKA_ID,'ym');
+          ym(METRIKA_ID,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:'dataLayer',accurateTrackBounce:true,trackLinks:true});
+        </script>
+      )
+    }
+  </head>
+  <body>
+    {!IS_PREVIEW && <noscript><div><img src={`https://mc.yandex.ru/watch/${METRIKA_ID}`} style="position:absolute;left:-9999px" alt="" /></div></noscript>}
+    {IS_PREVIEW && <div class="preview-banner">Превью нового сайта · закрыто от индексации · заявки не отправляются</div>}
+    <div class="intro" aria-hidden="true"><Wordmark /></div>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <script src="../scripts/lead.js"></script>
+    <script src="../scripts/motion.js"></script>
+  </body>
+</html>

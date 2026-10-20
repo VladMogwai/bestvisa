@@ -1,0 +1,21 @@
+---
+import ServicePage from '../components/ServicePage.astro';
+import ArticlePage from '../components/ArticlePage.astro';
+import ListPage from '../components/ListPage.astro';
+import CatalogPage from '../components/CatalogPage.astro';
+import { pages, pageType } from '../data/pages.js';
+
+export function getStaticPaths() {
+  return pages
+    .filter((p) => p.path !== '/')
+    .map((page) => ({ params: { slug: page.path.replace(/^\/|\/$/g, '') }, props: { page } }));
+}
+
+const { page } = Astro.props as { page: any };
+const type = pageType(page);
+---
+
+{type === 'service' && <ServicePage page={page} />}
+{type === 'article' && <ArticlePage page={page} />}
+{type === 'list' && <ListPage page={page} />}
+{type === 'catalog' && <CatalogPage page={page} />}

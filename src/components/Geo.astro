@@ -1,0 +1,26 @@
+---
+// Thin decorative circles and lines, as in the reference design.
+interface Props {
+  variant?: 'a' | 'b';
+}
+const { variant = 'a' } = Astro.props;
+---
+
+<div class="geo" aria-hidden="true">
+  {
+    variant === 'a' ? (
+      <svg viewBox="0 0 1200 1200" data-geo>
+        <circle cx="600" cy="600" r="420" />
+        <circle cx="840" cy="760" r="300" />
+        <line x1="120" y1="980" x2="1100" y2="220" />
+        <line x1="600" y1="0" x2="600" y2="1200" />
+      </svg>
+    ) : (
+      <svg viewBox="0 0 1200 1200" data-geo style="left:-30%;right:auto;top:20%">
+        <circle cx="500" cy="500" r="460" />
+        <circle cx="500" cy="500" r="220" />
+        <line x1="0" y1="500" x2="1200" y2="500" />
+      </svg>
+    )
+  }
+</div>

@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { messengers } from '../data/site.js';
+
+interface Props {
+  icons?: boolean;
+}
+const { icons = false } = Astro.props;
+---
+
+<div class:list={['messengers', { 'messengers--icons': icons }]}>
+  {
+    messengers.map((m) => (
+      <a class="messenger" href={m.href} target="_blank" rel="noopener" data-goal={`click_${m.id}`} title={m.name}>
+        <Icon name={m.id as 'tg' | 'wa' | 'max'} />
+        <span>{m.name}</span>
+      </a>
+    ))
+  }
+</div>

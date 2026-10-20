@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import FinalCta from './FinalCta.astro';
+import PostCards from './PostCards.astro';
+import { SITE_URL } from '../data/site.js';
+
+interface Props {
+  page: any;
+}
+const { page } = Astro.props;
+const head = page.sections.find((s: any) => s.kind === 'articleHero');
+const related = page.sections.find((s: any) => s.kind === 'related');
+// Article body may be split across several <section>s on the old site; render it as one text.
+const body = page.sections
+  .filter((s: any) => s.kind === 'article' || s.kind === 'raw')
+  .map((s: any) => s.html)
+  .join('\n');
+
+const isLegal = !head.parent;
+const parent = head.parent ? { name: head.parentName || 'Блог', href: head.parent } : null;
+const crumbs = [{ name: 'Главная', href: '/' }, ...(parent ? [parent] : [])];
+const firstImg = body.match(/<img[^>]+src="([^"]+)"/)?.[1];
+
+const schema = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [...crumbs, { name: page.h1, href: page.path }].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: SITE_URL + c.href })),
+  },
+  ...(isLegal
+    ? []
+    : [
+        {
+          '@type': page.path.startsWith('/news/') ? 'NewsArticle' : 'Article',
+          headline: page.h1,
+          description: page.description,
+          ...(head.date && { datePublished: head.date }),
+          ...(firstImg && { image: SITE_URL + firstImg }),
+          mainEntityOfPage: SITE_URL + page.path,
+          author: { '@id': `${SITE_URL}/#organization` },
+          publisher: { '@id': `${SITE_URL}/#organization` },
+        },
+      ]),
+];
+---
+
+<Base title={page.title} description={page.description} path={page.path} image={firstImg} schema={schema}>
+  <PageHead title={page.h1} crumbs={crumbs} eyebrow={parent?.name} meta={head.meta} />
+  <section class="section" style="border-top:0">
+    <div class="wrap info">
+      <aside class="article-side">
+        {
+          !isLegal && (
+            <div class="article-cta">
+              <p>Нужна помощь с документами? Специалист перезвонит за 15 минут.</p>
+              <a class="btn btn--accent" href="#zayavka" data-order={`Вопрос по статье: ${page.h1}`}>
+                Получить консультацию
+              </a>
+            </div>
+          )
+        }
+      </aside>
+      <article class="prose prose--article" set:html={body} />
+    </div>
+  </section>
+  {
+    related?.items?.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">{related.title || 'Читайте также'}</span>
+            <h2>Читайте также</h2>
+          </div>
+          <PostCards items={related.items} />
+        </div>
+      </section>
+    )
+  }
+  {!isLegal && <FinalCta page={page.h1} />}
+</Base>

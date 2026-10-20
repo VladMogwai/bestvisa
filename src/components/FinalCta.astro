@@ -1,0 +1,39 @@
+---
+import Messengers from './Messengers.astro';
+import { company } from '../data/site.js';
+
+interface Props {
+  page: string;
+}
+const { page } = Astro.props;
+---
+
+<section class="section dark" id="zayavka">
+  <div class="wrap cta">
+    <div>
+      <span class="eyebrow">Заявка</span>
+      <h2 data-split>Расскажите о поездке — остальное сделаем мы</h2>
+      <p class="cta__lead">Оставьте телефон: специалист перезвонит в течение 15 минут, ответит на вопросы и назовёт точную стоимость.</p>
+      <div class="cta__contacts">
+        <a class="cta__phone" href={company.phoneHref} data-goal="click_phone">{company.phone}</a>
+        <Messengers />
+      </div>
+    </div>
+    <form class="form" data-lead="cta" novalidate>
+      <label class="sr-only" for="cta-phone">Телефон</label>
+      <input class="field" id="cta-phone" type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 ___ ___ __ __" required />
+      <label class="sr-only" for="cta-name">Имя</label>
+      <input class="field" id="cta-name" type="text" name="name" autocomplete="given-name" placeholder="Ваше имя" required />
+      <label class="sr-only" for="cta-comment">Комментарий</label>
+      <textarea class="field" id="cta-comment" name="comment" rows="3" placeholder="Куда и когда планируете поездку (необязательно)"></textarea>
+      <input class="hp" type="email" name="email" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="page" value={page} />
+      <button class="btn btn--accent" type="submit">Отправить заявку</button>
+      <p class="lead__status" role="status" aria-live="polite"></p>
+      <label class="consent">
+        <input type="checkbox" name="consent" required checked />
+        <span>Я даю согласие на обработку <a href="/personal-data/">персональных данных</a> и принимаю <a href="/privacy-politic/">политику конфиденциальности</a>.</span>
+      </label>
+    </form>
+  </div>
+</section>

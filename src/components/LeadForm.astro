@@ -1,0 +1,26 @@
+---
+// Short hero form: phone only. Posts the same fields as the old site (see src/scripts/lead.js).
+import Messengers from './Messengers.astro';
+
+interface Props {
+  page: string;
+  button?: string;
+}
+const { page, button = 'Быстрая консультация' } = Astro.props;
+---
+
+<form class="leadform" data-lead="hero" novalidate>
+  <div class="lead__row">
+    <label class="sr-only" for="hero-phone">Телефон</label>
+    <input class="field" id="hero-phone" type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 ___ ___ __ __" required />
+    <button class="btn btn--accent" type="submit">{button}</button>
+  </div>
+  <input class="hp" type="email" name="email" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <input type="hidden" name="page" value={page} />
+  <p class="lead__status" role="status" aria-live="polite"></p>
+  <p class="lead__note">Перезвоним за 15 минут. Нажимая кнопку, вы даёте согласие на обработку <a href="/personal-data/">персональных данных</a>.</p>
+  <div class="lead__quick">
+    <span>или напишите, отвечаем 24/7:</span>
+    <Messengers />
+  </div>
+</form>

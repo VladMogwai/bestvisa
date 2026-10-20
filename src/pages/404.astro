@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { nav } from '../data/site.js';
+---
+
+<Base title="Страница не найдена — BestVisa" description="Такой страницы нет. Перейдите к услугам BestVisa или оставьте заявку — поможем с визой и загранпаспортом." path="/404/" noindex>
+  <PageHead title="Такой страницы нет" crumbs={[{ name: 'Главная', href: '/' }]} lead="Возможно, она переехала. Выберите услугу или оставьте заявку — специалист перезвонит за 15 минут.">
+    <div class="chips" style="margin-top:8px">
+      {nav.map((n) => <a class="chip" href={n.href}>{n.name}</a>)}
+    </div>
+  </PageHead>
+  <FinalCta page="404" />
+</Base>
