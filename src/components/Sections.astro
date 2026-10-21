@@ -4,6 +4,7 @@ import SocialProof from './SocialProof.astro';
 import FinalCta from './FinalCta.astro';
 import Messengers from './Messengers.astro';
 import Arrow from './Arrow.astro';
+import Ico from './Ico.astro';
 
 interface Props {
   page: any;
@@ -12,6 +13,7 @@ interface Props {
 const { page, bandImage } = Astro.props;
 const sections: any[] = page.sections;
 const pad = (i: number) => String(i + 1).padStart(2, '0');
+const STEP_ICONS = ['chat', 'docs', 'calendar', 'visa', 'passport', 'check'] as const;
 const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > tabs[best].rows.length ? i : best), 0);
 ---
 
@@ -35,7 +37,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
               <div class="cols guarantees__grid">
                 {s.items.map((html: string, i: number) => (
                   <div>
-                    <span class="num">{pad(i)}</span>
+                    <Ico name={(['check', 'calendar', 'ruble'] as const)[i % 3]} class="ico--lg" />
                     <p set:html={html.replace(/<\/strong>\s*—\s*(.)/, (_, c) => '</strong>' + c.toUpperCase())} />
                   </div>
                 ))}
@@ -47,7 +49,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
       case 'pricing': {
         const hot = richest(s.tabs);
         return (
-          <section class="section dark" id="pricing">
+          <section class="section tint" id="pricing">
             <div class="wrap">
               <div class="section-head">
                 <span class="eyebrow">Стоимость</span>
@@ -79,7 +81,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
 
       case 'passportPricing':
         return (
-          <section class="section dark" id="pricing">
+          <section class="section tint" id="pricing">
             <div class="wrap">
               <div class="section-head">
                 <span class="eyebrow">Стоимость</span>
@@ -190,6 +192,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
               <ol class="cols" style="list-style:none;margin:0;padding:0">
                 {s.items.map((it: any, i: number) => (
                   <li>
+                    <Ico name={STEP_ICONS[Math.min(i, STEP_ICONS.length - 1)]} class="ico--lg" />
                     <span class="num">Шаг {pad(i)}</span>
                     <h3>{it.title}</h3>
                     <p set:html={it.text} />
@@ -238,7 +241,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
             </div>
             <div class="wrap band__inner">
               <span class="eyebrow">Сложные случаи</span>
-              <h2 data-split style="margin-top:20px">{s.title}</h2>
+              <h2 data-split>{s.title}</h2>
               <ul class="band__list">
                 {s.items.map((h: string) => (
                   <li set:html={h} />
@@ -254,7 +257,7 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
       case 'discount':
         return (
           <section class="section">
-            <div class="wrap discount">
+            <div class="wrap"><div class="discount grad">
               <span class="discount__big">−25%</span>
               <div>
                 <h2>{s.title}</h2>
@@ -263,23 +266,25 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
               <a class="btn btn--accent" href="#zayavka" data-order="Скидка 25% на визу при оформлении загранпаспорта">
                 Оформить со скидкой
               </a>
-            </div>
+            </div></div>
           </section>
         );
 
       case 'questionsCta':
         return (
           <section class="section">
-            <div class="wrap ask">
-              <div>
-                <h2>{s.title}</h2>
-                <p>{s.text}</p>
-              </div>
-              <div class="ask__actions">
-                <a class="btn btn--accent" href="#zayavka" data-order={`Вопрос: ${page.h1}`}>
-                  Задать вопрос
-                </a>
-                <Messengers />
+            <div class="wrap">
+              <div class="ask grad">
+                <div>
+                  <h2>{s.title}</h2>
+                  <p>{s.text}</p>
+                </div>
+                <div class="ask__actions">
+                  <a class="btn btn--accent" href="#zayavka" data-order={`Вопрос: ${page.h1}`}>
+                    Задать вопрос
+                  </a>
+                  <Messengers />
+                </div>
               </div>
             </div>
           </section>
@@ -349,7 +354,6 @@ const richest = (tabs: any[]) => tabs.reduce((best, t, i) => (t.rows.length > ta
         return s.html ? (
           <section class="section">
             <div class="wrap info">
-              <span class="eyebrow" />
               <div class="prose" set:html={s.html} />
             </div>
           </section>

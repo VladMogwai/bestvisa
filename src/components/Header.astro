@@ -1,5 +1,6 @@
 ---
-import Messengers from './Messengers.astro';
+import Logo from './Logo.astro';
+import Ico from './Ico.astro';
 import { company, nav } from '../data/site.js';
 
 const path = Astro.url.pathname;
@@ -7,7 +8,7 @@ const path = Astro.url.pathname;
 
 <header class="header" data-header>
   <div class="header__bar">
-    <a class="logo" href="/" aria-label="BestVisa — на главную">bestvisa<b>.</b></a>
+    <a class="logo" href="/" aria-label="BestVisa — на главную"><Logo /></a>
     <nav class="header__nav" id="site-nav" aria-label="Основное меню">
       <ul>
         {
@@ -22,9 +23,8 @@ const path = Astro.url.pathname;
       </ul>
     </nav>
     <div class="header__meta">
-      <Messengers icons />
       <a class="header__phone" href={company.phoneHref} data-goal="click_phone">{company.phone}</a>
-      <a class="btn btn--accent header__cta" href="#zayavka" data-goal="click_cta_header">Заявка</a>
+      <a class="btn btn--accent header__cta" href="#zayavka" data-goal="click_cta_header">Оставить заявку <Ico name="arrow" /></a>
       <button class="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>

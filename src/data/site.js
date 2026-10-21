@@ -1,10 +1,11 @@
-export const SITE_URL = 'https://bestvisa.ru';
+export const SITE_URL = 'https://visabest.pro';
 
 // "preview" builds (Cloudflare Pages) are closed from indexing and do not send leads.
 export const IS_PREVIEW = import.meta.env.PUBLIC_ENV === 'preview';
 
-export const METRIKA_ID = 105543340;
-export const YANDEX_VERIFICATION = '33eedf293fb9e169';
+// visabest.pro needs its own counter and Webmaster code; empty values switch them off.
+export const METRIKA_ID = null;
+export const YANDEX_VERIFICATION = '';
 
 export const company = {
   name: 'BestVisa',

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import LeadForm from './LeadForm.astro';
 import Sections from './Sections.astro';
-import Geo from './Geo.astro';
+import Ico from './Ico.astro';
 import { SITE_URL, company } from '../data/site.js';
 import { heroImage } from '../data/pages.js';
 
@@ -11,6 +11,9 @@ interface Props {
 }
 const { page } = Astro.props;
 const heroBg = heroImage(page);
+const FEATURE_ICONS = ['person', 'contract', 'visa', 'calendar', 'chat', 'docs', 'plane', 'shield'] as const;
+const price = page.hero?.price?.replace(/\s*руб\.?$/, ' ₽') || '';
+const term = page.hero?.term?.replace(/^(Срок оформления|Готовность —)\s*/, '') || '';
 
 const sections = page.sections.some((s: any) => s.kind === 'finalCta') ? page.sections : [...page.sections, { kind: 'finalCta' }];
 const pricing = page.sections.find((s: any) => s.kind === 'pricing');
@@ -51,42 +54,46 @@ if (faq) {
 
 <Base title={page.title} description={page.description} path={page.path} image={heroBg} schema={schema}>
   <section class="hero">
-    <Geo />
-    <div class="wrap hero__inner">
-      <ol class="crumbs">
-        {crumbs.slice(0, -1).map((c) => <li><a href={c.href}>{c.name}</a></li>)}
-      </ol>
-      <div class="hero__grid">
-        <div>
-          <a class="trust" href={company.rating.url} target="_blank" rel="noopener nofollow">
-            {page.flag ? <span class="hero__flag" style="font-size:36px;margin:0"><img src={page.flag} alt="" /></span> : <span class="trust__ya">Я</span>}
-            <span>Надёжный бизнес <b>{company.rating.value}</b> <span class="trust__stars">★★★★★</span> {company.rating.count} оценки на Яндексе</span>
-          </a>
-          <h1 data-split>{page.h1}</h1>
-          {
-            (page.hero?.term || page.hero?.price) && (
-              <p class="hero__facts" data-fade>
-                {page.hero.price && <strong>{page.hero.price}</strong>}
-                {page.hero.term && <span>{page.hero.term}</span>}
-              </p>
-            )
-          }
-          {page.hero?.lead && <p class="hero__lead" data-fade set:html={page.hero.lead} />}
-          <div data-fade><LeadForm page={page.h1} /></div>
-        </div>
-        <div class="hero__media" data-media>
-          <img src={heroBg} alt="" fetchpriority="high" data-parallax />
-          {page.hero?.image && <img class="hero__passport" src={page.hero.image} alt={page.hero.imageAlt || ''} width="520" height="520" data-float />}
-        </div>
+    <div class="hero__split">
+      <div class="hero__panel">
+        <ol class="crumbs">
+          {crumbs.slice(0, -1).map((c) => <li><a href={c.href}>{c.name}</a></li>)}
+        </ol>
+        <a class="trust" href={company.rating.url} target="_blank" rel="noopener nofollow">
+          {page.flag ? <span class="hero__flag"><img src={page.flag} alt="" /></span> : <span class="trust__ya">Я</span>}
+          <span>Надёжный бизнес <b>{company.rating.value}</b> <span class="trust__stars">★★★★★</span> {company.rating.count} оценки на Яндексе</span>
+        </a>
+        <h1>{page.h1}</h1>
+        {
+          (term || price) && (
+            <div class="hero__facts">
+              {price && <span><small>Цена</small>{price}</span>}
+              {term && <span><small>Срок оформления</small>{term}</span>}
+            </div>
+          )
+        }
+        {page.hero?.lead && <p class="hero__lead" set:html={page.hero.lead} />}
+        <div class="hero__form"><LeadForm page={page.h1} /></div>
       </div>
-      {
-        page.hero?.features?.length > 0 && (
-          <ul class="hero__features" data-stagger>
-            {page.hero.features.map((f: string) => <li set:html={f} />)}
-          </ul>
-        )
-      }
+      <div class="hero__photo">
+        <img src={heroBg} alt={page.h1} fetchpriority="high" />
+        <span class="hero__badge"><b>{company.clients}</b>клиентов с 2013 года</span>
+      </div>
     </div>
+    {
+      page.hero?.features?.length > 0 && (
+        <div class="strip">
+          <ul class="strip__list">
+            {page.hero.features.slice(0, 8).map((f: string, i: number) => (
+              <li>
+                <Ico name={FEATURE_ICONS[i % FEATURE_ICONS.length]} />
+                <span set:html={f} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
   </section>
 
   <Sections page={{ ...page, sections }} bandImage={heroBg} />

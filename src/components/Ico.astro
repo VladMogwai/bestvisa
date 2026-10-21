@@ -1,0 +1,55 @@
+---
+// Icons from Phosphor (MIT, phosphoricons.com), duotone weight; arrows and marks in bold.
+// Usage: <Ico name="visa" />; size follows font-size (1em) unless .ico--md / --lg / --xl is set.
+const duotone = import.meta.glob('/node_modules/@phosphor-icons/core/assets/duotone/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const bold = import.meta.glob('/node_modules/@phosphor-icons/core/assets/bold/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+
+// Our names → Phosphor names
+const MAP = {
+  visa: 'stamp',
+  schengen: 'globe-hemisphere-west',
+  passport: 'identification-card',
+  fast: 'lightning',
+  contract: 'seal-check',
+  plane: 'airplane-tilt',
+  card: 'credit-card',
+  shield: 'shield-plus',
+  invite: 'envelope-simple',
+  home: 'house-line',
+  globe: 'globe-hemisphere-east',
+  docs: 'files',
+  calendar: 'calendar-check',
+  chat: 'chat-circle-dots',
+  pin: 'map-pin',
+  ruble: 'currency-rub',
+  person: 'user-circle-check',
+  check: 'check-circle',
+  star: 'star',
+  arrow: 'arrow-up-right',
+  plus: 'plus',
+} as const;
+const BOLD = new Set(['arrow', 'plus']);
+
+interface Props {
+  name: keyof typeof MAP;
+  class?: string;
+  label?: string;
+}
+const { name, class: cls, label } = Astro.props;
+const file = MAP[name];
+const raw = BOLD.has(name)
+  ? bold[`/node_modules/@phosphor-icons/core/assets/bold/${file}-bold.svg`]
+  : duotone[`/node_modules/@phosphor-icons/core/assets/duotone/${file}-duotone.svg`];
+if (!raw) throw new Error(`Icon not found: ${name} → ${file}`);
+const inner = raw.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+---
+
+<svg
+  class:list={['ico', cls]}
+  viewBox="0 0 256 256"
+  fill="currentColor"
+  aria-hidden={label ? undefined : 'true'}
+  role={label ? 'img' : undefined}
+  aria-label={label}
+  set:html={inner}
+/>

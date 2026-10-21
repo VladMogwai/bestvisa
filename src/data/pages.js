@@ -1,7 +1,13 @@
 // All migrated pages plus helpers shared by the templates.
-const files = import.meta.glob('./pages/*.json', { eager: true });
+import { buildPage } from './rewrite/apply.js';
 
-export const pages = Object.values(files).map((m) => m.default);
+const files = import.meta.glob('./pages/*.json', { eager: true });
+const overrides = import.meta.glob('./rewrite/pages/*.json', { eager: true });
+const name = (key) => key.split('/').pop();
+const overrideByName = Object.fromEntries(Object.entries(overrides).map(([k, m]) => [name(k), m.default]));
+
+// Texts on visabest.pro differ from bestvisa.ru: see src/data/rewrite/.
+export const pages = Object.entries(files).map(([k, m]) => buildPage(m.default, overrideByName[name(k)]));
 export const byPath = Object.fromEntries(pages.map((p) => [p.path, p]));
 
 const IMG = '/shared/assets/images';

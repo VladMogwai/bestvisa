@@ -12,7 +12,7 @@ RewriteEngine On
 # https and no www
 RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^ https://bestvisa.ru%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://visabest.pro%{REQUEST_URI} [L,R=301]
 
 # Old URLs without a trailing slash are stored as name.html
 RewriteCond %{REQUEST_FILENAME} !-d

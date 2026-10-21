@@ -2,20 +2,20 @@
 // Field names and the bv_ft storage format match the old site's script.js,
 // so /shared/send_form.php keeps receiving exactly what it expects.
 
-const METRIKA_ID = 105543340;
+const METRIKA_ID = Number(document.documentElement.dataset.metrika) || null;
 const ENDPOINT = '/shared/send_form.php';
 const PREVIEW = document.documentElement.dataset.env === 'preview';
 
 const goal = (name, params) => {
   try {
-    window.ym?.(METRIKA_ID, 'reachGoal', name, params);
+    if (METRIKA_ID) window.ym?.(METRIKA_ID, 'reachGoal', name, params);
   } catch (e) {}
 };
 
 // ---------- First touch (90 days, not overwritten by internal navigation) ----------
 const FT_KEY = 'bv_ft';
 const FT_DAYS = 90;
-const isOwn = (h) => !h || /(^|\.)bestvisa\.ru$/.test(h);
+const isOwn = (h) => !h || /(^|\.)visabest\.pro$/.test(h);
 const isYandex = (h) => /(^|\.)(yandex\.(ru|com|by|kz|ua)|ya\.ru|ya\.com)$/.test(h);
 const isGoogle = (h) => /(^|\.)google\./.test(h);
 const isSeo = (h) => isYandex(h) || isGoogle(h) || /(^|\.)(bing\.com|mail\.ru|rambler\.ru|duckduckgo\.com|yahoo\.com)$/.test(h);
@@ -49,8 +49,8 @@ function writeFt(ft) {
   } catch (e) {}
   const exp = new Date(Date.now() + FT_DAYS * 864e5).toUTCString();
   const enc = encodeURIComponent(raw);
-  if (location.hostname.endsWith('bestvisa.ru')) {
-    document.cookie = `${FT_KEY}=${enc}; expires=${exp}; path=/; domain=.bestvisa.ru; SameSite=Lax`;
+  if (location.hostname.endsWith('visabest.pro')) {
+    document.cookie = `${FT_KEY}=${enc}; expires=${exp}; path=/; domain=.visabest.pro; SameSite=Lax`;
   }
   document.cookie = `${FT_KEY}=${enc}; expires=${exp}; path=/; SameSite=Lax`;
 }
@@ -270,10 +270,38 @@ document.addEventListener('click', (e) => {
   if (el) goal(el.dataset.goal);
 });
 
-// ---------- Mobile menu ----------
+// ---------- Header: collapse the menu into the burger when it does not fit ----------
+const headerEl = document.querySelector('[data-header]');
+const bar = headerEl?.querySelector('.header__bar');
+function fitHeader() {
+  if (!bar) return;
+  headerEl.classList.remove('header--compact');
+  if (bar.scrollWidth > bar.clientWidth + 1) headerEl.classList.add('header--compact');
+}
+fitHeader();
+addEventListener('resize', fitHeader);
+document.fonts?.ready.then(fitHeader);
+
+// ---------- Menu (burger) ----------
+// Closes on a click outside the menu, on Esc, and after choosing an item.
 const burger = document.querySelector('.burger');
-burger?.addEventListener('click', () => {
-  const nav = document.getElementById('site-nav');
-  const open = nav.classList.toggle('is-open');
-  burger.setAttribute('aria-expanded', String(open));
+const siteNav = document.getElementById('site-nav');
+function setMenu(open) {
+  siteNav?.classList.toggle('is-open', open);
+  burger?.setAttribute('aria-expanded', String(open));
+}
+burger?.addEventListener('click', () => setMenu(!siteNav.classList.contains('is-open')));
+document.addEventListener('click', (e) => {
+  if (!siteNav?.classList.contains('is-open')) return;
+  if (siteNav.contains(e.target) || burger.contains(e.target)) return;
+  setMenu(false);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && siteNav?.classList.contains('is-open')) {
+    setMenu(false);
+    burger.focus();
+  }
+});
+siteNav?.addEventListener('click', (e) => {
+  if (e.target.closest('a')) setMenu(false);
 });
